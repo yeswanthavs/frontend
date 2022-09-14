@@ -20,7 +20,7 @@ import slugify from 'react-slugify';
 
 import './style.css'
 import { useNavigate } from 'react-router-dom';
-import { Link } from '@mui/material';
+import { Grid, Link } from '@mui/material';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -51,9 +51,9 @@ const ResponsiveAppBar = () => {
         setAnchorElUser(null);
     };
 
-    const redirectpage =(text)=>{
+    const redirectpage = (text) => {
 
-     const url = slugify(text.name)
+        const url = slugify(text.name)
         navigate(`/${url}`)
     }
 
@@ -69,33 +69,13 @@ const ResponsiveAppBar = () => {
     }, [])
 
     return (
-        <AppBar position="fixed" sx={{backgroundColor:'#ffffff'}}>
+        <AppBar position="fixed" sx={{ backgroundColor: '#ffffff' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },                        
-                            fontWeight: 9000,
-                            letterSpacing: '.2rem',
-                            color: '#DB4437',
-                        
-                            textDecoration: 'none',
-                            
-                        }}
-                    >
-                        As Rao
-                    </Typography>
+
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-
-
-
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -104,13 +84,13 @@ const ResponsiveAppBar = () => {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon />
+                            <MenuIcon sx={{ color: '#000000' }} />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorElNav}
                             anchorOrigin={{
-                                vertical: 'bottom',
+                                vertical: 'top',
                                 horizontal: 'left',
                             }}
                             keepMounted
@@ -126,37 +106,66 @@ const ResponsiveAppBar = () => {
                         >
                             {fixed.map((page) => (
                                 <MenuItem onClick={handleCloseNavMenu}>
-                                    <Typography sx={{color:'#000000',fontSize:'20px'}} textAlign="center">{page.name}</Typography>
+                                    <Typography sx={{ color: '#000000', fontSize: '20px' }} textAlign="center">{page.name}</Typography>
                                 </MenuItem>
+                            ))}
+
+
+                            {dropdown.map((item, key) => (
+
+                                <>
+                                    <div>
+                                        <div class="navigation">
+                                            <Link style={{ fontSize: '20px', fontWeight: 600 }} href="#">{item.name}</Link>
+                                            <div class="navigation-content">
+                                                {item.selectedvalue.map(item1 => (
+
+                                                    <Link href={`/${item1.slug}`}>{item1.name}</Link>
+                                                ))}
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </>
+
+
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
                     <Typography
-                        variant="h5"
+                        variant="h6"
                         noWrap
                         component="a"
-                        href=""
+                        href="/"
                         sx={{
                             mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
+                            display: { xs: 'flex', md: 'flex' },
+                            fontWeight: 9000,
+                            letterSpacing: '.2rem',
+                            color: '#DB4437',
+
                             textDecoration: 'none',
+
                         }}
                     >
-                        LOGO
+                        As Rao
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+
+
+
+
+
+
+                    <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
                         {fixed.map((page) => (
                             <Button
-                                
+
                                 key={page}
-                                onClick={()=>redirectpage(page)}
-                                sx={{fontSize:'20px', my: 2, color: '#000000', display: 'block',textTransform:'none' }}
+                                onClick={() => redirectpage(page)}
+                                sx={{ fontSize: '20px', my: 2, color: '#000000', display: 'block', textTransform: 'none' }}
                             >
                                 {page.name}
                             </Button>
@@ -165,16 +174,15 @@ const ResponsiveAppBar = () => {
                         {dropdown.map((item, key) => (
 
                             <>
-
-
                                 <div>
                                     <div class="navigation">
-                                        <Link style={{fontSize:'20px' ,fontWeight:600}}  href="#">{item.name}</Link>
+                                        <Link style={{ fontSize: '20px', fontWeight: 600 }} href="#">{item.name}</Link>
+                                        <div class="navigation-content">
+                                            {item.selectedvalue.map(item1 => (
 
-                                        {item.selectedvalue.map(item1 => (
-                                            <div class="navigation-content">
                                                 <Link href={`/${item1.slug}`}>{item1.name}</Link>
-                                            </div>))}
+                                            ))}
+                                        </div>
 
                                     </div>
                                 </div>
@@ -185,35 +193,7 @@ const ResponsiveAppBar = () => {
                         ))}
                     </Box>
 
-                    {/* <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box> */}
+
                 </Toolbar>
             </Container>
         </AppBar>
