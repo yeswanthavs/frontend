@@ -75,6 +75,8 @@ const ResponsiveAppBar = () => {
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
 
 
+ 
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -107,7 +109,7 @@ const ResponsiveAppBar = () => {
                             {fixed.map((page) => (
                                 // <Link href={`/${slugify(page.name)}`}>{page.name}</Link>
                                 <MenuItem onClick={handleCloseNavMenu}>
-                                    <Link underline='none' style={{ fontSize: '20px', fontWeight: 500 ,color: '#000000',}} href={`/${slugify(page.name)}`}>{page.name}</Link>
+                                    <Link underline='none' style={{ fontSize: '20px', fontWeight: 500, color: '#000000', }} href={`/${slugify(page.name)}`}>{page.name}</Link>
                                     {/* <Typography sx={{ color: '#000000', fontSize: '20px' }} textAlign="center">{page.name}</Typography> */}
                                 </MenuItem>
                             ))}
@@ -136,6 +138,15 @@ const ResponsiveAppBar = () => {
                         </Menu>
                     </Box>
 
+                    <Box sx={{ flexGrow: 0,textAlign:'right',paddingRight:'10px' }}>
+                        <Tooltip >
+                            <IconButton size='large'  sx={{ p: 0 }}>
+                                <Avatar  sx={{ width: 50, height: 50 }} src="https://scontent.fdel29-1.fna.fbcdn.net/v/t1.6435-9/48365020_808368382835391_8131439694916354048_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=4fI3p7ggmCwAX84tMrz&_nc_oc=AQlc8U6LP3uI1gB5cebN-1jhzpoCSfLD7mfuyVHcWk1osTpFgE4yf18shwHV1GZIj0U&_nc_ht=scontent.fdel29-1.fna&oh=00_AT8yrnUdX__INwvmM_TX-u-jlbn4uSk47ZEAILmQZr5GHw&oe=6348596A" />
+                            </IconButton>
+                        </Tooltip>
+
+                    </Box>
+
                     <Typography
                         variant="h6"
                         noWrap
@@ -157,22 +168,11 @@ const ResponsiveAppBar = () => {
 
 
 
-
-
-
-
-                    <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex', } }}>
                         {fixed.map((page) => (
-                            // <Button
 
-                            //     key={page}
-                            //     onClick={() => redirectpage(page)}
-                            //     sx={{ fontSize: '20px', my: 2, color: '#000000', display: 'block', textTransform: 'none' }}
-                            // >
-                            //     {page.name}
-                            // </Button>
 
-<Link  sx={{ padding:'6px', fontWeight:500, fontSize: '20px', my: 2, color: '#000000', display: 'block', textTransform: 'none' }}  underline='none' href={`/${slugify(page.name)}`}>{page.name}</Link>
+                            <Link sx={{ padding: '6px', fontWeight: 500, fontSize: '20px', my: 2, color: '#3d3d3d', display: 'block', textTransform: 'none' }} underline='none' href={`/${slugify(page.name)}`}>{page.name}</Link>
                         ))}
 
                         {dropdown.map((item, key) => (
@@ -180,7 +180,7 @@ const ResponsiveAppBar = () => {
                             <>
                                 <div>
                                     <div class="navigation">
-                                        <Link style={{ fontSize: '20px', fontWeight: 600 }} href="#">{item.name}</Link>
+                                        <Link style={{ fontSize: '20px', color: '#3d3d3d', fontWeight: 600 }} href="#">{item.name}</Link>
                                         <div class="navigation-content">
                                             {item.selectedvalue.map(item1 => (
 
@@ -195,6 +195,16 @@ const ResponsiveAppBar = () => {
 
 
                         ))}
+                    </Box>
+
+
+                    <Box sx={{ flexGrow: 1,textAlign:'right' }}>
+                        <Tooltip >
+                            <IconButton sx={{ p: 0 }}>
+                                <Avatar sx={{ width: 50, height: 50 }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_hsIxCIhrsIW-YK6qvsb-PFRGhQ7sjbplhuOE8Jsv7w&s" />
+                            </IconButton>
+                        </Tooltip>
+
                     </Box>
 
 

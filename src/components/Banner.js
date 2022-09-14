@@ -16,7 +16,7 @@ function MainFeaturedPost(props) {
         position: 'relative',
         backgroundColor: 'grey.800',
         color: '#fff',
-        mb: 4,
+        mb: 2,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
@@ -33,26 +33,33 @@ function MainFeaturedPost(props) {
           right: 0,
           left: 0,
           backgroundColor: 'rgba(0,0,0,.3)',
+   
         }}
       />
-      <Grid container>
-        <Grid item md={6}>
+      <Grid container sx={{justifyContent:'center',alignItems:'center'}}>
+        <Grid item md={6} sx={{paddingTop:'100px', textAlign:'center',justifyContent:'center',alignItems:'center'}}>
           <Box
             sx={{
               position: 'relative',
               p: { xs: 3, md: 6 },
               pr: { md: 0 },
+              alignItems:"center",
+              justifyContent:"center"
+              
             }}
           >
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+
+
+            <Typography  sx={{fontWeight:500,fontSize:'40px'}}  component="h1" variant="h4" color="inherit" gutterBottom>
               {post.title}
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
+            {/*
             <Link variant="subtitle1" href="#">
               {post.linkText}
-            </Link>
+            </Link> */}
           </Box>
         </Grid>
       </Grid>

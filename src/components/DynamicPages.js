@@ -19,11 +19,9 @@ export default function DynamicPages(props) {
 
     const [mainFeaturedPost, setmainfeaturedpost] = useState({
         title: 'Loading',
+        description:'',
         image: 'https://source.unsplash.com/random'
-
     })
-
-
 
 
     useEffect(() => {
@@ -35,8 +33,6 @@ export default function DynamicPages(props) {
 
         // }
         // console.log(url.length)
-
-
 
         let string
         for (var i = url.length - 1; i >= 0; i--) {
@@ -70,7 +66,7 @@ export default function DynamicPages(props) {
 
                 if (res.data.data.slug === "home") {
                     setmainfeaturedpost({
-                        ...mainFeaturedPost, title: "Prof.Allam Srinivasa Rao", image: 'https://picsum.photos/1230/168',
+                        ...mainFeaturedPost, title: "Prof. Allam Srinivasa Rao", image: 'https://www.centralesupelec.fr/sites/default/files/labo-francais-image15.jpg',description:'Academic Profile',
                     })
                 }
                 else {
