@@ -152,7 +152,7 @@ const ResponsiveAppBar = () => {
 
                         }}
                     >
-                        As Rao
+                        A.S.Rao
                     </Typography>
 
 
