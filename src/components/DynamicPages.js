@@ -66,12 +66,12 @@ export default function DynamicPages(props) {
 
                 if (res.data.data.slug === "home") {
                     setmainfeaturedpost({
-                        ...mainFeaturedPost, title: "Prof Allam Srinivas Rao", image: 'https://source.unsplash.com/random',
+                        ...mainFeaturedPost, title: "Prof Allam Srinivas Rao", image: 'https://picsum.photos/1230/168',
                     })
                 }
                 else {
                     setmainfeaturedpost({
-                        ...mainFeaturedPost, title: res.data.data.name, image: 'https://source.unsplash.com/random'
+                        ...mainFeaturedPost, title: res.data.data.name, image: 'https://picsum.photos/1230/168'
                     })
 
                 }
