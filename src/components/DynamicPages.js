@@ -110,8 +110,13 @@ export default function DynamicPages(props) {
         <>
 
             <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2} padding={5}>
+                <div style={{padding:'20px'}}>
                 <MainFeaturedPost post={mainFeaturedPost} />
+
+                </div>
+           
+                <Grid container spacing={2} padding={5}>
+ 
                     {htmldata.map(item => (
                         <Grid item xs={item.width}>
 
