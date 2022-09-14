@@ -17,6 +17,7 @@ import Snackbar from '@mui/material/Snackbar';
 function App() {
 
     const [pagelist, setpagelist] = useState([])
+    const [len,setlen]=useState(0)
     // const [fixed,setfixed] =useState([])
     // const [dropdown,setdropdown]=useState([])
 
@@ -131,11 +132,22 @@ function App() {
     React.useEffect(() => {
         axios.get(API + 'navbar/get').then(res => {
 
-            const result = res.data.result[0]
-            console.log(result)
-            setid(result._id)
-            setFormFields(result.fixed)
-            setFormFields1(result.dropdown)
+
+            if(res.status===200)
+            {
+                const result = res.data.result[0]
+                console.log(result)
+                setid(result._id)
+  
+                setlen(result.fixed.length+result.dropdown.length)
+                setFormFields(result.fixed)
+                setFormFields1(result.dropdown)
+                
+
+            }
+
+           
+
          
         })
     }, [])
@@ -260,8 +272,10 @@ function App() {
 
                 <br />
 
-                <Button variant='contained' onClick={UpdateValues}>Update</Button>
-                <Button variant='contained' onClick={submit}>Submit</Button> 
+
+{len>0 ?<Button variant='contained' onClick={UpdateValues}>Update</Button> : <Button variant='contained' onClick={submit}>Submit</Button>  }
+                
+                
 
          
 

@@ -13,6 +13,8 @@ export default function DynamicPages(props) {
 
     const [htmldata, sethtmldata] = useState([])
 
+    
+
     const [mainFeaturedPost, setmainfeaturedpost] = useState({
         title: 'Loading',
         image: 'https://source.unsplash.com/random'

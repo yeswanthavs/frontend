@@ -1,16 +1,20 @@
-import ReactQuill, { Quill } from 'react-quill-with-table';
-import ImageResize from 'quill-image-resize-module-react';
-import { ImageDrop } from 'quill-image-drop-module';
-import * as QuillTableUI from 'quill-table-ui'
+// import ReactQuill, { Quill } from 'react-quill-with-table';
+// import ImageResize from 'quill-image-resize-module-react';
+// import { ImageDrop } from 'quill-image-drop-module';
+// import * as QuillTableUI from 'quill-table-ui'
+// import BlotFormatter from 'quill-blot-formatter';
+
+import ReactQuill,{Quill} from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import BlotFormatter from 'quill-blot-formatter';
 
 
-Quill.register('modules/imageResize', ImageResize);
-Quill.register('modules/imageDrop', ImageDrop);
+// Quill.register('modules/imageResize', ImageResize);
+// Quill.register('modules/imageDrop', ImageDrop);
 Quill.register('modules/blotFormatter', BlotFormatter);
-Quill.register({
-'modules/tableUI': QuillTableUI.default
-}, true)
+// Quill.register({
+// 'modules/tableUI': QuillTableUI.default
+// }, true)
 
 
 
@@ -45,8 +49,8 @@ scrollingContainer=".parent-scroll"
 
 
 Editor.modules = {
-table: true,
-tableUI: true,
+// table: true,
+// tableUI: true,
 toolbar: [
 [{ header: '1' }, { header: '2' }, { header: [3, 4, 5, 6] }, { font: [] }],
 [{ size: [] }],
@@ -66,11 +70,11 @@ clipboard: {
 // toggle to add extra line breaks when pasting HTML:
 matchVisual: false
 },
-imageResize: {
-parchment: Quill.import('parchment'),
-modules: ['Resize', 'DisplaySize']
-},
-imageDrop: true,
+// imageResize: {
+// parchment: Quill.import('parchment'),
+// modules: ['Resize', 'DisplaySize']
+// },
+// imageDrop: true,
 blotFormatter: {}
 };
 
