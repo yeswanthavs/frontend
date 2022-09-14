@@ -18,11 +18,14 @@ import { API } from '../config';
 
 
 import './style.css'
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
+
+    const navigate = useNavigate()
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -38,12 +41,18 @@ const ResponsiveAppBar = () => {
     };
 
     const handleCloseNavMenu = () => {
+
         setAnchorElNav(null);
     };
 
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const redirectpage =(text)=>{
+        navigate(`/${text.name}`)
+    }
+
 
 
     React.useEffect(() => {
@@ -142,7 +151,7 @@ const ResponsiveAppBar = () => {
                             <Button
                                 
                                 key={page}
-                                onClick={handleCloseNavMenu}
+                                onClick={()=>redirectpage(page)}
                                 sx={{fontSize:'20px', my: 2, color: '#000000', display: 'block',textTransform:'none' }}
                             >
                                 {page.name}

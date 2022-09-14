@@ -110,7 +110,7 @@ export default function DynamicPages(props) {
         <>
 
             <Box sx={{ flexGrow: 1 }}>
-                <div style={{padding:'20px'}}>
+                <div style={{paddingLeft:'20px',paddingRight:'20px',paddingTop:'20px'}}>
                 <MainFeaturedPost post={mainFeaturedPost} />
 
                 </div>
