@@ -111,10 +111,11 @@ export default function DynamicPages(props) {
 
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={2} padding={5}>
+                <MainFeaturedPost post={mainFeaturedPost} />
                     {htmldata.map(item => (
                         <Grid item xs={item.width}>
 
-                            <MainFeaturedPost post={mainFeaturedPost} />
+
 
 
                             <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
