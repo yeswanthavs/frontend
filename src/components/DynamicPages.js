@@ -13,7 +13,7 @@ export default function DynamicPages(props) {
 
     const [htmldata, sethtmldata] = useState([])
 
-    
+
 
     const [mainFeaturedPost, setmainfeaturedpost] = useState({
         title: 'Loading',
@@ -112,23 +112,16 @@ export default function DynamicPages(props) {
         <>
 
             <Box sx={{ flexGrow: 1 }}>
-                <div style={{paddingLeft:'20px',paddingRight:'20px',paddingTop:'20px'}}>
-                <MainFeaturedPost post={mainFeaturedPost} />
+                <div style={{ paddingLeft: '20px', paddingRight: '20px', paddingTop: '50px' }}>
+                    <MainFeaturedPost post={mainFeaturedPost} />
 
                 </div>
-           
+
                 <Grid container spacing={2} padding={5}>
- 
+
                     {htmldata.map(item => (
-                        <Grid item xs={item.width}>
-
-
-
-
+                        <Grid item xs={12} lg={item.width} md={item.width}>
                             <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
-
-
-
                         </Grid>
                     ))}
 

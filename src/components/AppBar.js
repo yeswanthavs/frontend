@@ -20,6 +20,7 @@ import slugify from 'react-slugify';
 
 import './style.css'
 import { useNavigate } from 'react-router-dom';
+import { Link } from '@mui/material';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -79,11 +80,11 @@ const ResponsiveAppBar = () => {
                         href="/"
                         sx={{
                             mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: '#000000',
+                            display: { xs: 'none', md: 'flex' },                        
+                            fontWeight: 9000,
+                            letterSpacing: '.2rem',
+                            color: '#DB4437',
+                        
                             textDecoration: 'none',
                             
                         }}
@@ -168,11 +169,11 @@ const ResponsiveAppBar = () => {
 
                                 <div>
                                     <div class="navigation">
-                                        <a href="#">{item.name}</a>
+                                        <Link style={{fontSize:'20px' ,fontWeight:600}}  href="#">{item.name}</Link>
 
                                         {item.selectedvalue.map(item1 => (
                                             <div class="navigation-content">
-                                                <a href={`/${item1.slug}`}>{item1.name}</a>
+                                                <Link href={`/${item1.slug}`}>{item1.name}</Link>
                                             </div>))}
 
                                     </div>
