@@ -6,6 +6,7 @@ import Editor from './Editor';
 import Snackbar from '@mui/material/Snackbar';
 import CloseIcon from '@mui/icons-material/Close';
 import TableComponent from './TableComponent'
+import { stripHtml } from "string-strip-html";
 
 
 
@@ -44,7 +45,12 @@ function PageCreator() {
   const submit = (e) => {
     e.preventDefault();
     const pagedata = JSON.stringify(formFields)
-    const data = { pagename, pagedata }
+
+    let mdesc=formFields[0].body
+    mdesc = stripHtml(mdesc.substring(0, 350));
+    mdesc = mdesc.result
+
+    const data = { pagename, pagedata,mdesc }
     console.log(data)
 
     axios.post(API + `pages/create`, { data }).then(res => {

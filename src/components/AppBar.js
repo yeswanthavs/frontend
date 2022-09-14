@@ -105,8 +105,10 @@ const ResponsiveAppBar = () => {
                             }}
                         >
                             {fixed.map((page) => (
+                                // <Link href={`/${slugify(page.name)}`}>{page.name}</Link>
                                 <MenuItem onClick={handleCloseNavMenu}>
-                                    <Typography sx={{ color: '#000000', fontSize: '20px' }} textAlign="center">{page.name}</Typography>
+                                    <Link underline='none' style={{ fontSize: '20px', fontWeight: 500 ,color: '#000000',}} href={`/${slugify(page.name)}`}>{page.name}</Link>
+                                    {/* <Typography sx={{ color: '#000000', fontSize: '20px' }} textAlign="center">{page.name}</Typography> */}
                                 </MenuItem>
                             ))}
 
@@ -161,14 +163,16 @@ const ResponsiveAppBar = () => {
 
                     <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
                         {fixed.map((page) => (
-                            <Button
+                            // <Button
 
-                                key={page}
-                                onClick={() => redirectpage(page)}
-                                sx={{ fontSize: '20px', my: 2, color: '#000000', display: 'block', textTransform: 'none' }}
-                            >
-                                {page.name}
-                            </Button>
+                            //     key={page}
+                            //     onClick={() => redirectpage(page)}
+                            //     sx={{ fontSize: '20px', my: 2, color: '#000000', display: 'block', textTransform: 'none' }}
+                            // >
+                            //     {page.name}
+                            // </Button>
+
+<Link  sx={{ padding:'6px', fontWeight:500, fontSize: '20px', my: 2, color: '#000000', display: 'block', textTransform: 'none' }}  underline='none' href={`/${slugify(page.name)}`}>{page.name}</Link>
                         ))}
 
                         {dropdown.map((item, key) => (

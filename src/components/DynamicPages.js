@@ -6,12 +6,14 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 import MainFeaturedPost from './Banner';
+import {Helmet} from "react-helmet";
 
 
 
 export default function DynamicPages(props) {
 
     const [htmldata, sethtmldata] = useState([])
+    const [mdesc,setmdesc]=useState("")
 
 
 
@@ -62,7 +64,7 @@ export default function DynamicPages(props) {
         var pagename = string
         console.log(pagename)
         axios.post(API + 'pages/getpage', { pagename }).then(res => {
-            console.log(res)
+            console.log(res,"pages")
 
             if (res.status === 200) {
 
@@ -78,7 +80,7 @@ export default function DynamicPages(props) {
 
                 }
 
-                console.log(mainFeaturedPost)
+     
 
 
                 const resdata = res.data.data.pagedata
@@ -96,9 +98,7 @@ export default function DynamicPages(props) {
                     array.push(obj)
 
                 }
-
-                console.log(array)
-
+                setmdesc(res.data.data.mdesc )
                 sethtmldata(array)
             }
 
@@ -110,6 +110,14 @@ export default function DynamicPages(props) {
 
     return (
         <>
+            <Helmet>
+      <title>{mainFeaturedPost.title}</title>
+      <meta name="keywords" content="physics,applied physics,atmospheric sciences" />
+      <meta
+        name="description"
+        content={mdesc}
+      />
+    </Helmet>
 
             <Box sx={{ flexGrow: 1 }}>
                 <div style={{ paddingLeft: '20px', paddingRight: '20px', paddingTop: '50px' }}>
