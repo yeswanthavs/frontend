@@ -204,7 +204,7 @@ function App() {
                                         value={form.name}
                                     >
 
-                                        {pagelist.map(list => (<MenuItem value={list.slug}>{list.name}</MenuItem>))}
+                                        {pagelist.map(list => (<MenuItem value={list.name}>{list.name}</MenuItem>))}
 
 
                                     </Select>

@@ -15,6 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import axios from 'axios';
 import { API } from '../config';
 
+import slugify from 'react-slugify';
 
 
 import './style.css'
@@ -50,7 +51,9 @@ const ResponsiveAppBar = () => {
     };
 
     const redirectpage =(text)=>{
-        navigate(`/${text.name}`)
+
+     const url = slugify(text.name)
+        navigate(`/${url}`)
     }
 
 
