@@ -36,6 +36,7 @@ function App() {
 <Routes>
       <Route path="/:page" element={<DynamicPages />}>
         
+        
 
         {/* <Route index element={<Home />} />
         <Route path="teams" element={<Teams />}>
@@ -44,6 +45,7 @@ function App() {
           <Route index element={<LeagueStandings />} />
         </Route> */}
       </Route>
+      <Route path="/" element={<DynamicPages />}></Route>
       <Route path="/add" element={<HomePage/>} />
 
       <Route path="/dashboard" element={<Drawer/>} />

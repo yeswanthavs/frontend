@@ -24,10 +24,23 @@ export default function DynamicPages(props) {
 
     useEffect(() => {
         const url = window.location.href
-        console.log(url.length)
+
+
+        // if(url==='https://localhost:3000' || url==='http://localhost:3000' || url ==="https://asrao.in" || url==="http://asrao.in" || url==="https://asrao.vercel.app/")
+        // {
+
+        // }
+        // console.log(url.length)
+
+
+
         let string
         for (var i = url.length - 1; i >= 0; i--) {
-            console.log(url[i])
+
+            if (url[url.length - 1] === "/") {
+                string = "emoh"
+            }
+
             if (url[i] !== "/") {
                 if (string === undefined) {
                     string = url[i]
@@ -104,10 +117,10 @@ export default function DynamicPages(props) {
                             <MainFeaturedPost post={mainFeaturedPost} />
 
 
-<div  dangerouslySetInnerHTML={{ __html: item.body }}></div>
+                            <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
 
 
-                            
+
                         </Grid>
                     ))}
 
