@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 import MainFeaturedPost from './Banner';
 import {Helmet} from "react-helmet";
+import ResponsiveAppBar from './AppBar';
 
 
 
@@ -114,15 +115,17 @@ export default function DynamicPages(props) {
         content={mdesc}
       />
     </Helmet>
+    <div>
+<ResponsiveAppBar />
 
-            <Box sx={{ flexGrow: 1 }}>
+</div>
+
+
+            <Box sx={{ flexGrow: 1 ,marginTop:'180px',display:{sx:'none',xs:'none',md:"block",lg:'block'}}}>
                 <div style={{ paddingLeft: '20px', paddingRight: '20px', paddingTop: '50px' }}>
                     <MainFeaturedPost post={mainFeaturedPost} />
-
                 </div>
-
-                <Grid container spacing={2} padding={5}>
-
+                <Grid container spacing={2} paddingLeft={5} paddingRight={5} >
                     {htmldata.map(item => (
                         <Grid item xs={12} lg={item.width} md={item.width}>
                             <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
@@ -130,9 +133,22 @@ export default function DynamicPages(props) {
                     ))}
 
                 </Grid>
+            </Box>
 
 
+            
+            <Box sx={{ flexGrow: 1 ,marginTop:'80px',display:{md:'none',lg:'none',sm:"block",xs:'block'}}}>
+                <div style={{ paddingLeft: '20px', paddingRight: '20px', paddingTop: '50px' }}>
+                    <MainFeaturedPost post={mainFeaturedPost} />
+                </div>
+                <Grid container spacing={2} paddingLeft={5} paddingRight={5} >
+                    {htmldata.map(item => (
+                        <Grid item xs={12} lg={item.width} md={item.width}>
+                            <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
+                        </Grid>
+                    ))}
 
+                </Grid>
             </Box>
 
 

@@ -66,6 +66,7 @@ function App() {
     }
 
     const removeFields = (index) => {
+    console.log(index,"k")
         let data = [...formFields];
         data.splice(index, 1)
         setFormFields(data)
@@ -95,12 +96,16 @@ function App() {
 
 
 
+
+
+
+    // addFields1,removeFields1,handleFormChange1 these functions are for dropmenu sections
+
     const handleFormChange1 = (event, index) => {
         let data = [...formFields1];
         data[index][event.target.name] = event.target.value;
         setFormFields1(data);
     }
-
 
 
     const addFields1 = () => {
@@ -255,7 +260,7 @@ function App() {
                                     onRemove={(selectedList, removedItem) => onRemove(selectedList, removedItem, index)} // Function will trigger on remove event
                                     displayValue="name" // Property name to display in the dropdown options
                                 />
-                                <Button onClick={() => removeFields(index)}>Remove</Button>
+                                <Button onClick={() => removeFields1(index)}>Remove</Button>
                             </div>
                         )
                     })}

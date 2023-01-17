@@ -27,10 +27,6 @@ function App() {
 {/* <HomePage /> */}
 {/* {renderHTML(htmldata)} */}
 
-<div style={{paddingBottom:'50px'}}>
-<AppBar />
-
-</div>
 
 
 <Routes>
