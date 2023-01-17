@@ -81,7 +81,7 @@ const ResponsiveAppBar = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
-                            sx={{fontSize:'100px'}}
+                            
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
@@ -264,10 +264,11 @@ const ResponsiveAppBar = () => {
             <Container maxWidth="xl" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    
+                    <Box >
                         <IconButton
                             // size="large"
-                        style={{size:'100px'}}
+                        
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
@@ -290,9 +291,7 @@ const ResponsiveAppBar = () => {
                             }}
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
+                          
                         >
                             {fixed.map((page) => (
                                 // <Link href={`/${slugify(page.name)}`}>{page.name}</Link>
