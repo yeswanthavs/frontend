@@ -159,9 +159,9 @@ const ResponsiveAppBar = () => {
                                 sx={{
                                     mr: 2,
                                     display: { xs: 'none', md: 'flex' },
-                                    fontWeight: 9000,
-                                    letterSpacing: '.2rem',
-                                    color: '#DB4437',
+                                    fontWeight: 900,
+                                    // letterSpacing: '.2rem',
+                                    color: '#4285F4',
                                     fontSize: '40px',
 
                                     textDecoration: 'none',
@@ -180,7 +180,7 @@ const ResponsiveAppBar = () => {
                                     mr: 2,
                                     display: { xs: 'none', md: 'flex' },
                                     fontSize: '40px',
-                                    letterSpacing: '.1rem',
+                                    // letterSpacing: '.1rem',
                                     color: '#a8a8a8',
                                     fontSize: '20px',
 
@@ -233,26 +233,32 @@ const ResponsiveAppBar = () => {
 
                             ))}
 
-                            {dropdown.map((item, key) => (
+{dropdown.length>0 && (<>
 
-                                <>
-                                    <div>
-                                        <div class="navigation">
-                                            <Link style={{ fontSize: '18px', fontWeight: 700, color: '#7d7d7d', }} href="#">{item.name}</Link>
-                                            <div class="navigation-content">
-                                                {item.selectedvalue.map(item1 => (
+    {dropdown.map((item, key) => (
 
-                                                    <Link href={`/${item1.slug}`}>{item1.name}</Link>
-                                                ))}
-                                            </div>
+<>
+    <div>
+        <div class="navigation">
+            <Link style={{ fontSize: '18px', fontWeight: 700, color: '#7d7d7d', }} href="#">{item.name}</Link>
+            <div class="navigation-content">
+                {item.selectedvalue.map(item1 => (
 
-                                        </div>
-                                    </div>
+                    <Link href={`/${item1.slug}`}>{item1.name}</Link>
+                ))}
+            </div>
 
-                                </>
+        </div>
+    </div>
+
+</>
 
 
-                            ))}
+))}
+</>)}
+
+
+
                         </Box>
 
                     </Toolbar>
@@ -260,10 +266,10 @@ const ResponsiveAppBar = () => {
             </AppBar>
 
 
-            <AppBar sx={{ position: 'fixed', display: { sm: 'block', xs: 'block', md: 'none', lg: 'none' }, backgroundColor: '#ffffff', height: '100px' }}>
+            <AppBar sx={{ position: 'fixed', display: { md: 'none', lg: 'none' }, backgroundColor: '#ffffff', height: '100px' }}>
                 <Container maxWidth="xl" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
                     <Toolbar disableGutters>
-                        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                      
                         <Box >
                             <IconButton
                                 // size="large"
@@ -333,8 +339,8 @@ const ResponsiveAppBar = () => {
                                 sx={{
                                     mr: 2,
                                     fontWeight: 9000,
-                                    letterSpacing: '.1rem',
-                                    color: '#DB4437',
+                                    // letterSpacing: '.1rem',
+                                    color: '#4285F4',
                                     fontSize: '20px',
 
                                     textDecoration: 'none',
