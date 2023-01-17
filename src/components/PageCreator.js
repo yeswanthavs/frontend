@@ -9,7 +9,6 @@ import TableComponent from './TableComponent'
 import { stripHtml } from "string-strip-html";
 
 
-
 function PageCreator() {
 
   const [pageslist, setpagelist] = useState([])
@@ -17,7 +16,7 @@ function PageCreator() {
 
   const [pagename, setpagename] = useState('')
   const [formFields, setFormFields] = useState([
-    { body: '', gridSize: '' },
+    { body: '', gridSize: '' ,editor:'Quill'},
   ])
 
   const [open, setOpen] = useState(false);
@@ -69,7 +68,8 @@ function PageCreator() {
   const addFields = () => {
     let object = {
       body: '',
-      gridSize: ''
+      gridSize: '',
+      editor:'Quill'
     }
     setFormFields([...formFields, object])
   }

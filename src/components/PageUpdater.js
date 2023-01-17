@@ -20,7 +20,7 @@ function PageCreator() {
   const [pagename, setpagename] = useState('')
   const [id,setid]=useState('')
   const [formFields, setFormFields] = useState([
-    { body: '', gridSize: '' },
+    { body: '', gridSize: '',editor:'Quill' },
   ])
 
   const [open, setOpen] = useState(false);
@@ -67,7 +67,8 @@ function PageCreator() {
   const addFields = () => {
     let object = {
       body: '',
-      gridSize: ''
+      gridSize: '',
+      editor:'Quill'
     }
     setFormFields([...formFields, object])
   }
