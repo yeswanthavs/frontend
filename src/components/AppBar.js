@@ -15,6 +15,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import axios from 'axios';
 import { API } from '../config';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import AsraoImage from '../assets/asrinivasrao.jpg'
+import DtuLogo from '../assets/dtuLogo.jpg'
 
 
 import slugify from 'react-slugify';
@@ -141,7 +143,7 @@ const ResponsiveAppBar = () => {
                     <Box sx={{ display: { sm: 'none', xs: 'none', md: 'block', lg: 'block' }, flexGrow: 0, textAlign: 'right', paddingRight: '10px' }}>
                         <Tooltip >
                             <IconButton href='/' size='large' sx={{ p: 0 }}>
-                                <Avatar sx={{ display: {}, width: 120, height: 120 }} src="http://dtu.ac.in/modules/facilities/people/faculty/userimages/asrinivasrao.jpg" />
+                                <Avatar sx={{ display: {}, width: 120, height: 120 }} src={AsraoImage} />
                             </IconButton>
                         </Tooltip>
 
@@ -214,7 +216,7 @@ const ResponsiveAppBar = () => {
 
                     <Box sx={{display:{sm:'none',md:'block',lg:'block',xs:'none'},  flexGrow: 1, textAlign: 'right' }} >                    
 
-                        <a href='http://dtu.ac.in/'> <img href='dtu.ac.in' sx={{ width: 110, height: 110 }} src="http://dtu.ac.in/Web/images/ImageLogo.jpg" /></a>   
+                        <a href='http://dtu.ac.in/'> <img href='dtu.ac.in' sx={{ width: 110, height: 110 }} src={DtuLogo}/></a>   
                     </Box>
 
 
