@@ -74,83 +74,125 @@ const ResponsiveAppBar = () => {
 
     return (
         <>
-         <AppBar  sx={{position:'absolute', display:{sm:'none',xs:'none',md:'block',lg:'block'}, backgroundColor: '#ffffff', height: '210px' }}>
-            <Container maxWidth="xl" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
-                <Toolbar disableGutters>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon sx={{ color: '#000000' }} />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {fixed.map((page) => (
-                                // <Link href={`/${slugify(page.name)}`}>{page.name}</Link>
-                                <MenuItem onClick={handleCloseNavMenu}>
-                                    <Link underline='none' style={{ fontSize: '20px', fontWeight: 500, color: '#000000', }} href={`/${slugify(page.name)}`}>{page.name}</Link>
-                                    {/* <Typography sx={{ color: '#000000', fontSize: '20px' }} textAlign="center">{page.name}</Typography> */}
-                                </MenuItem>
-                            ))}
+            <AppBar sx={{ position: 'absolute', display: { sm: 'none', xs: 'none', md: 'block', lg: 'block' }, backgroundColor: '#ffffff', height: '210px' }}>
+                <Container maxWidth="xl" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+                    <Toolbar disableGutters>
+                        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                            <IconButton
+                                size="large"
 
-
-                            {dropdown.map((item, key) => (
-
-                                <>
-                                    <div>
-                                        <div class="navigation">
-                                            <Link style={{ fontSize: '20px', fontWeight: 600 }} href="#">{item.name}</Link>
-                                            <div class="navigation-content">
-                                                {item.selectedvalue.map(item1 => (
-
-                                                    <Link href={`/${item1.slug}`}>{item1.name}</Link>
-                                                ))}
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </>
-
-
-                            ))}
-                        </Menu>
-                    </Box>
-
-                    <Box sx={{ display: { sm: 'none', xs: 'none', md: 'block', lg: 'block' }, flexGrow: 0, textAlign: 'right', paddingRight: '10px' }}>
-                        <Tooltip >
-                            <IconButton href='/' size='large' sx={{ p: 0 }}>
-                                <Avatar sx={{ display: {}, width: 120, height: 120 }} src={AsraoImage} />
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleOpenNavMenu}
+                                color="inherit"
+                            >
+                                <MenuIcon sx={{ color: '#000000' }} />
                             </IconButton>
-                        </Tooltip>
+                            <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorElNav}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                open={Boolean(anchorElNav)}
+                                onClose={handleCloseNavMenu}
+                                sx={{
+                                    display: { xs: 'block', md: 'none' },
+                                }}
+                            >
+                                {fixed.map((page) => (
+                                    // <Link href={`/${slugify(page.name)}`}>{page.name}</Link>
+                                    <MenuItem onClick={handleCloseNavMenu}>
+                                        <Link underline='none' style={{ fontSize: '20px', fontWeight: 500, color: '#000000', }} href={`/${slugify(page.name)}`}>{page.name}</Link>
+                                        {/* <Typography sx={{ color: '#000000', fontSize: '20px' }} textAlign="center">{page.name}</Typography> */}
+                                    </MenuItem>
+                                ))}
 
-                    </Box>
 
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                {dropdown.map((item, key) => (
 
+                                    <>
+                                        <div>
+                                            <div class="navigation">
+                                                <Link style={{ fontSize: '20px', fontWeight: 600 }} href="#">{item.name}</Link>
+                                                <div class="navigation-content">
+                                                    {item.selectedvalue.map(item1 => (
+
+                                                        <Link href={`/${item1.slug}`}>{item1.name}</Link>
+                                                    ))}
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </>
+
+
+                                ))}
+                            </Menu>
+                        </Box>
+
+                        <Box sx={{ display: { sm: 'none', xs: 'none', md: 'block', lg: 'block' }, flexGrow: 0, textAlign: 'right', paddingRight: '10px' }}>
+                            <Tooltip >
+                                <IconButton href='/' size='large' sx={{ p: 0 }}>
+                                    <Avatar sx={{ display: {}, width: 120, height: 120 }} src={AsraoImage} />
+                                </IconButton>
+                            </Tooltip>
+
+                        </Box>
+
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="a"
+                                href="/"
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: 'none', md: 'flex' },
+                                    fontWeight: 9000,
+                                    letterSpacing: '.2rem',
+                                    color: '#DB4437',
+                                    fontSize: '40px',
+
+                                    textDecoration: 'none',
+
+                                }}
+                            >
+                                Prof.A.S. Rao
+                            </Typography>
+
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="a"
+                                href="/"
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: 'none', md: 'flex' },
+                                    fontSize: '40px',
+                                    letterSpacing: '.1rem',
+                                    color: '#a8a8a8',
+                                    fontSize: '20px',
+
+                                    textDecoration: 'none',
+
+                                }}
+                            >
+                                Department of Applied Physics
+                            </Typography>
+
+
+                        </div>
                         <Typography
                             variant="h6"
                             noWrap
@@ -158,11 +200,10 @@ const ResponsiveAppBar = () => {
                             href="/"
                             sx={{
                                 mr: 2,
-                                display: { xs: 'none', md: 'flex' },
+                                display: { xs: 'block', md: 'none', lg: 'none' },
                                 fontWeight: 9000,
-                                letterSpacing: '.2rem',
+                                letterSpacing: '.1rem',
                                 color: '#DB4437',
-                                fontSize: '40px',
 
                                 textDecoration: 'none',
 
@@ -171,143 +212,33 @@ const ResponsiveAppBar = () => {
                             Prof.A.S. Rao
                         </Typography>
 
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="/"
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'none', md: 'flex' },
-                                fontSize: '40px',
-                                letterSpacing: '.1rem',
-                                color: '#a8a8a8',
-                                fontSize: '20px',
-
-                                textDecoration: 'none',
-
-                            }}
-                        >
-                            Department of Applied Physics
-                        </Typography>
 
 
-                    </div>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'block', md: 'none', lg: 'none' },
-                            fontWeight: 9000,
-                            letterSpacing: '.1rem',
-                            color: '#DB4437',
+                        <Box sx={{ display: { sm: 'none', md: 'block', lg: 'block', xs: 'none' }, flexGrow: 1, textAlign: 'right' }} >
 
-                            textDecoration: 'none',
-
-                        }}
-                    >
-                        Prof.A.S. Rao
-                    </Typography>
+                            <a href='http://dtu.ac.in/'> <img href='dtu.ac.in' sx={{ width: 110, height: 110 }} src={DtuLogo} /></a>
+                        </Box>
 
 
+                    </Toolbar>
 
-                    <Box sx={{display:{sm:'none',md:'block',lg:'block',xs:'none'},  flexGrow: 1, textAlign: 'right' }} >                    
+                    <Toolbar >
 
-                        <a href='http://dtu.ac.in/'> <img href='dtu.ac.in' sx={{ width: 110, height: 110 }} src={DtuLogo}/></a>   
-                    </Box>
-
-
-                </Toolbar>
-
-                <Toolbar >
-
-                    <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex', } }}>
-                        {fixed.map((page) => (
-
-                                <Link sx={{ fontWeight: 700, paddingTop:'7px',paddingRight:'10px', fontSize: '18px', my: 2, color: '#7d7d7d', display: 'block', textTransform: 'none' }} underline='none' href={`/${slugify(page.name)}`}>{page.name}</Link>
-
-                        
-
-                        ))}
-
-                        {dropdown.map((item, key) => (
-
-                            <>
-                                <div>
-                                    <div class="navigation">
-                                      <Link style={{ fontSize: '18px',  fontWeight: 700,  color: '#7d7d7d',}} href="#">{item.name}</Link> 
-                                        <div class="navigation-content">
-                                            {item.selectedvalue.map(item1 => (
-
-                                                <Link href={`/${item1.slug}`}>{item1.name}</Link>
-                                            ))}
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </>
-
-
-                        ))}
-                    </Box>
-
-                </Toolbar>
-            </Container>
-        </AppBar>
-
-
-<AppBar  sx={{position:'fixed', display:{sm:'block',xs:'block',md:'none',lg:'none'}, backgroundColor: '#ffffff', height: '100px' }}>
-            <Container maxWidth="xl" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
-                <Toolbar disableGutters>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    
-                    <Box >
-                        <IconButton
-                            // size="large"
-                        
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon sx={{ color: '#3b3b3b',fontSize:'60px' }} />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                          
-                        >
+                        <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex', } }}>
                             {fixed.map((page) => (
-                                // <Link href={`/${slugify(page.name)}`}>{page.name}</Link>
-                                <MenuItem onClick={handleCloseNavMenu}>
-                                    <Link underline='none' style={{ fontSize: '20px', fontWeight: 500, color: '#000000', }} href={`/${slugify(page.name)}`}>{page.name}</Link>
-                                    {/* <Typography sx={{ color: '#000000', fontSize: '20px' }} textAlign="center">{page.name}</Typography> */}
-                                </MenuItem>
-                            ))}
 
+                                <Link sx={{ fontWeight: 700, paddingTop: '7px', paddingRight: '10px', fontSize: '18px', my: 2, color: '#7d7d7d', display: 'block', textTransform: 'none' }} underline='none' href={`/${slugify(page.name)}`}>{page.name}</Link>
+
+
+
+                            ))}
 
                             {dropdown.map((item, key) => (
 
                                 <>
                                     <div>
                                         <div class="navigation">
-                                            <Link style={{ fontSize: '20px', fontWeight: 600 }} href="#">{item.name}</Link>
+                                            <Link style={{ fontSize: '18px', fontWeight: 700, color: '#7d7d7d', }} href="#">{item.name}</Link>
                                             <div class="navigation-content">
                                                 {item.selectedvalue.map(item1 => (
 
@@ -322,99 +253,129 @@ const ResponsiveAppBar = () => {
 
 
                             ))}
-                        </Menu>
-                    </Box>
+                        </Box>
+
+                    </Toolbar>
+                </Container>
+            </AppBar>
 
 
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <AppBar sx={{ position: 'fixed', display: { sm: 'block', xs: 'block', md: 'none', lg: 'none' }, backgroundColor: '#ffffff', height: '100px' }}>
+                <Container maxWidth="xl" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+                    <Toolbar disableGutters>
+                        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                        <Box >
+                            <IconButton
+                                // size="large"
 
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="/"
-                            sx={{
-                                mr: 2,
-                                
-                                fontWeight: 9000,
-                                letterSpacing: '.2rem',
-                                color: '#DB4437',
-                                fontSize: '25px',
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleOpenNavMenu}
+                                color="inherit"
+                            >
+                                <MenuIcon sx={{ color: '#3b3b3b', fontSize: '36px' }} />
+                            </IconButton>
+                            <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorElNav}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                open={Boolean(anchorElNav)}
+                                onClose={handleCloseNavMenu}
 
-                                textDecoration: 'none',
-
-                            }}
-                        >
-                            Prof.A.S. Rao
-                        </Typography>
-
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="/"
-                            sx={{
-                                mr: 2,
-                               
-                                fontSize: '15px',
-                                letterSpacing: '.1rem',
-                                color: '#a8a8a8',
-                                fontSize: '20px',
-
-                                textDecoration: 'none',
-
-                            }}
-                        >
-                            Department of Applied Physics
-                        </Typography>
+                            >
+                                {fixed.map((page) => (
+                                    // <Link href={`/${slugify(page.name)}`}>{page.name}</Link>
+                                    <MenuItem onClick={handleCloseNavMenu}>
+                                        <Link underline='none' style={{ fontSize: '20px', fontWeight: 500, color: '#000000', }} href={`/${slugify(page.name)}`}>{page.name}</Link>
+                                        {/* <Typography sx={{ color: '#000000', fontSize: '20px' }} textAlign="center">{page.name}</Typography> */}
+                                    </MenuItem>
+                                ))}
 
 
-                    </div>
-                 
+                                {dropdown.map((item, key) => (
 
+                                    <>
+                                        <div>
+                                            <div class="navigation">
+                                                <Link style={{ fontSize: '20px', fontWeight: 600 }} href="#">{item.name}</Link>
+                                                <div class="navigation-content">
+                                                    {item.selectedvalue.map(item1 => (
 
+                                                        <Link href={`/${item1.slug}`}>{item1.name}</Link>
+                                                    ))}
+                                                </div>
 
-                </Toolbar>
-{/* 
-                <Toolbar >
-
-                    <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex', } }}>
-                        {fixed.map((page) => (
-
-                                <Link sx={{ fontWeight: 700, paddingTop:'7px',paddingRight:'10px', fontSize: '18px', my: 2, color: '#7d7d7d', display: 'block', textTransform: 'none' }} underline='none' href={`/${slugify(page.name)}`}>{page.name}</Link>
-
-                        
-
-                        ))}
-
-                        {dropdown.map((item, key) => (
-
-                            <>
-                                <div>
-                                    <div class="navigation">
-                                      <Link style={{ fontSize: '18px',  fontWeight: 700,  color: '#7d7d7d',}} href="#">{item.name}</Link> 
-                                        <div class="navigation-content">
-                                            {item.selectedvalue.map(item1 => (
-
-                                                <Link href={`/${item1.slug}`}>{item1.name}</Link>
-                                            ))}
+                                            </div>
                                         </div>
 
-                                    </div>
-                                </div>
-
-                            </>
+                                    </>
 
 
-                        ))}
-                    </Box>
+                                ))}
+                            </Menu>
+                        </Box>
 
-                </Toolbar> */}
-            </Container>
-        </AppBar>
+                        <Box style={{ display: 'flex', flexDirection: 'column' }}>
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="a"
+                                href="/"
+                                sx={{
+                                    mr: 2,
+                                    fontWeight: 9000,
+                                    letterSpacing: '.1rem',
+                                    color: '#DB4437',
+                                    fontSize: '20px',
+
+                                    textDecoration: 'none',
+
+                                }}
+                            >
+                                Prof.A.S. Rao
+                            </Typography>
+
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="a"
+                                href="/"
+                                sx={{
+                                    mr: 2,
+
+                                    fontSize: '15px',
+
+                                    color: '#a8a8a8',
+                                    fontSize: '18px',
+                                    textDecoration: 'none',
+
+                                }}
+                            >
+                                Department of Applied Physics
+                            </Typography>
+
+
+                        </Box>
+
+
+
+
+                    </Toolbar>
+
+                </Container>
+            </AppBar>
 
         </>
-       
+
     );
 };
 export default ResponsiveAppBar;
